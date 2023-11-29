@@ -1,0 +1,22 @@
+python-dotenv
+pandas
+openai==0.28
+tenacity
+matplotlib
+torch
+transformers
+vllm
+
+# for sub-structures parsing and bm25 retrieval
+nltk
+more-itertools
+rank_bm25
+
+# for dataflow-evaluation-toolkit (smcalflow evaluation)
+ply==3.11
+sqlalchemy==1.4.36
+graphviz==0.20
+jsons
+
+# for top to create compositional split
+astunparse
