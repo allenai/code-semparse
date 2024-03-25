@@ -136,6 +136,13 @@ def run_set_of_experiments(dataset_name, exp_type, model, eval_set=None, n_test_
         prompt_methods_per_lang = {
             dsl_lang: ["formal", "full_dd", "list_of_operators", "no_dd"],
         }
+    elif exp_type == "sql":
+        demonstrations_selection_methods_per_prompt_lang = {
+            "sql": ["fixed_random"],
+        }
+        prompt_methods_per_lang = {
+            "sql": ["schema", "no_dd"],
+        }
     else:
         demonstrations_selection_methods_per_prompt_lang = {
             "python": ["fixed_random"],
@@ -205,14 +212,15 @@ if __name__ == "__main__":
     argparser.add_argument("--num-processes", type=int, default=8)
     args = argparser.parse_args()
 
-    run_set_of_experiments("geo880", "pls", "gpt-3.5-turbo")
+    run_set_of_experiments("geo880", "pls", "gpt-3.5-turbo", n_test_samples=400)
     run_set_of_experiments("geo880", "main", "bigcode/starcoder", eval_set="test", n_test_samples=400)
-    run_set_of_experiments("geo880", "main", "gpt-3.5-turbo", eval_set="test", seeds=[4], n_test_samples=10)
+    run_set_of_experiments("geo880", "main", "gpt-3.5-turbo", eval_set="test", n_test_samples=400)
     run_set_of_experiments("geo880", "curve", "gpt-3.5-turbo", n_test_samples=400)
     run_set_of_experiments("geo880", "curve_python", "gpt-3.5-turbo", n_test_samples=400)
     run_set_of_experiments("geo880", "coverage", "gpt-3.5-turbo", n_test_samples=400)
     run_set_of_experiments("geo880", "single_multi", "gpt-3.5-turbo", n_test_samples=400)
     run_set_of_experiments("geo880", "formal", "gpt-3.5-turbo", n_test_samples=400)
+    run_set_of_experiments("geo880", "sql", "gpt-3.5-turbo", eval_set="test", n_test_samples=400, allow_cache=False)
 
     run_set_of_experiments("overnight", "main", "gpt-3.5-turbo")
     run_set_of_experiments("overnight", "main", "bigcode/starcoder")

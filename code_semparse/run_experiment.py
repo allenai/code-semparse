@@ -26,7 +26,7 @@ def get_args():
     args.add_argument("--eval_set_name", type=str, default="test")
     args.add_argument("--n_training_demonstrations", type=int, default=3)
     args.add_argument("--n_test_samples", type=int, default=60)
-    args.add_argument("--model", type=str, default="gpt-3.5-turbo")
+    args.add_argument("--model", type=str, default="gpt-3.5-turbo-0613")
     args.add_argument("--prompt_lang", type=str)
     args.add_argument("--prompt_method", type=str)
     args.add_argument("--icl_selection_method", type=str, choices=["fixed_random", "cover_atoms_oracle"], default="fixed_random")

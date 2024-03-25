@@ -1,4 +1,4 @@
-from prompts.geo880 import python as geo880_python, funql as geo880_funql, scala as geo880_scala, javascript as geo880_javascript
+from prompts.geo880 import python as geo880_python, funql as geo880_funql, scala as geo880_scala, javascript as geo880_javascript, sql as geo880_sql
 from prompts.smcalflow import simplified as smcalflow_cs_simple_v3_simplified, python as smcalflow_cs_simple_v3_python, dataflow as smcalflow_cs_simple_v3_dataflow, javascript as smcalflow_cs_simple_v3_javascript, scala as smcalflow_cs_simple_v3_scala
 from prompts.overnight import python as overnight_python, dcs as overnight_dcs, scala as overnight_scala, javascript as overnight_javascript, dcs_simplified as overnight_dcs_simplified
 
@@ -57,19 +57,22 @@ TEMPLATE_PER_DATASET = {
             "python": geo880_python.structures,
             "scala": geo880_scala.structures,
             "javascript": geo880_javascript.structures,
-            "funql": geo880_funql.structures
+            "funql": geo880_funql.structures,
+            "sql": geo880_sql.structures
         },
         "solution_prefix_for_method": {
             "python": geo880_python.solution_prefix,
             "scala": geo880_scala.solution_prefix,
             "javascript": geo880_javascript.solution_prefix,
-            "funql": geo880_funql.solution_prefix
+            "funql": geo880_funql.solution_prefix,
+            "sql": geo880_sql.solution_prefix
         },
         "test_solution_prefix_for_method": {
             "python": geo880_python.test_solution_prefix,
             "scala": geo880_scala.test_solution_prefix,
             "javascript": geo880_javascript.test_solution_prefix,
-            "funql": geo880_funql.test_solution_prefix
+            "funql": geo880_funql.test_solution_prefix,
+            "sql": geo880_sql.test_solution_prefix
         }
     },
     "smcalflow": {

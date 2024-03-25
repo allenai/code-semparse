@@ -48,7 +48,7 @@ def get_dataset(dataset_name: str, split_name: str, eval_set: str = None, domain
     for ex in all_original_examples:
         ex["dataset"] = dataset_name
 
-    for pl in ["python", "scala", "javascript"]:
+    for pl in ["python", "scala", "javascript", "sql"]:
         pl_programs_path = f"../datasets/{dataset_name}/all_{pl}_programs.jsonl"
         if os.path.exists(pl_programs_path):
             with open(pl_programs_path, "r") as f:
